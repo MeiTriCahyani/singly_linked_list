@@ -156,32 +156,54 @@ namespace singly_linked_list
                                 }
                                 Console.WriteLine(" Enter the roll number of" + 
                                     " the student whose record is to be delete");
-                                int roll
-                                if ()
-                                    Console.WriteLine();
-
+                                int rollNo = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.delNode(rollNo) == false)
+                                    Console.WriteLine("\n Record not found.");
+                                else
+                                    Console.WriteLine("Record with roll number" + 
+                                        + rollNo + "Deleted");
                             }
                             break;
                         case '3':
                             {
-
+                                obj.Traverse();
                             }
                             break;
                         case '4':
                             {
-
+                                if(obj.listEmpty() == true)
+                                {
+                                    Console.WriteLine("\n List is empty");
+                                    break;
+                                }
+                                Node previous, current;
+                                previous = current = null;
+                                Console.WriteLine("\n Enter roll number of the" +
+                                    " Student whole record is to be searched:");
+                                int num = Convert.ToInt32(Console.ReadLine());
+                                if (obj.Search(num, ref previous, ref current) == false)
+                                    Console.WriteLine("\n Record not found.");
+                                else
+                                {
+                                    Console.WriteLine("\n Record not found");
+                                    Console.WriteLine("\n Roll number:" + current.rollNumber);
+                                    Console.WriteLine("\n Name: " + current.name);
+                                }
                             }
                             break;
                         case '5':
+                            return;
+                        default:
                             {
-
+                                Console.WriteLine("\nInvalid Option");
                             }
                             break;
                     }
                 }
-                catch (ch)
+                catch (Exception)
                 {
-                    
+                    Console.WriteLine("\n Check for the value enterd");
                 }
             }
         }
